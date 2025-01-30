@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ShoesOfWorld"
 include(":app")
- 
+include(":core:data")
