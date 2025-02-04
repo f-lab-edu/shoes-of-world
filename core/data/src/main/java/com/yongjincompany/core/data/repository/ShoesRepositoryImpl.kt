@@ -1,16 +1,16 @@
 package com.yongjincompany.core.data.repository
 
-import com.yongjincompany.core.data.remote.api.ShoesApi
+import com.yongjincompany.core.data.remote.datasource.RemoteShoesDataSource
 import com.yongjincompany.core.data.remote.mapper.responseToEntity
 import com.yongjincompany.core.domain.repository.ShoesRepository
 import com.yongjincompany.core.model.Shoes
 import javax.inject.Inject
 
-internal class ShoesRepositoryImpl @Inject constructor(
-    private val shoesApi: ShoesApi
+class ShoesRepositoryImpl @Inject constructor(
+    private val remoteShoesDataSource: RemoteShoesDataSource
 ) : ShoesRepository {
     override suspend fun fetchAllShoesList(): List<Shoes> {
-        return shoesApi.fetchAllShoesList()
-            .map { it.responseToEntity() }
+        return remoteShoesDataSource.fetchAllShoesList().map { it.responseToEntity() }
     }
+
 }

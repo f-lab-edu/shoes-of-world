@@ -3,7 +3,7 @@ package com.yongjincompany.core.data.remote.model.response
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class ShoesResponse(
+data class ShoesResponse(
     val id: Int,
     val name: String,
     val brandName: String,

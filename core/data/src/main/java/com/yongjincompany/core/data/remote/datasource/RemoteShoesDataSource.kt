@@ -1,9 +1,7 @@
-package com.yongjincompany.core.data.remote.api
+package com.yongjincompany.core.data.remote.datasource
 
 import com.yongjincompany.core.data.remote.model.response.ShoesResponse
-import retrofit2.http.GET
 
-interface ShoesApi {
-    @GET("shoes/list")
+interface RemoteShoesDataSource {
     suspend fun fetchAllShoesList(): List<ShoesResponse>
 }
