@@ -10,6 +10,7 @@ material = "1.12.0"
 activity = "1.10.0"
 constraintlayout = "2.2.0"
 jetbrainsKotlinJvm = "1.9.24"
+fragment = "1.8.5"
 lifecycle = "2.8.7"
 retrofit = "2.11.0"
 kotlinxSerializationJson = "1.6.3"
@@ -18,7 +19,7 @@ okhttp = "4.12.0"
 glide = "4.16.0"
 room = "2.6.1"
 ksp = "1.9.24-1.0.20"
-hilt = "2.52"
+hilt = "2.55"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,6 +41,8 @@ okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhtt
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+dagger-hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 dagger-hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 inject = "javax.inject:javax.inject:1"
 
