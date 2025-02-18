@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -21,4 +22,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "ShoesOfWorld"
 include(":app")
- 
+include(":core:data")
+include(":core:domain")
+include(":feature:home")
+include(":core:ui")
