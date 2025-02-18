@@ -2,51 +2,27 @@ package com.yongjincompany.feature.home.adapter.brand_category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.yongjincompany.core.model.BrandCategory
-import com.yongjincompany.feature.home.databinding.ItemBrandCategoryImageBinding
+import com.yongjincompany.core.domain.entity.BrandCategoryEntity
+import com.yongjincompany.feature.home.HomeFragment
+import com.yongjincompany.feature.home.databinding.ItemBrandCategoryBinding
 
-internal class BrandCategoryAdapter :
-    ListAdapter<BrandCategory, BrandCategoryAdapter.BrandCategoryImageViewHolder>(DiffCallback) {
+internal class BrandCategoryAdapter(private val categories : List<BrandCategoryEntity>) : RecyclerView.Adapter<BrandCategoryViewHolder>() {
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): BrandCategoryImageViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrandCategoryViewHolder {
         val binding =
-            ItemBrandCategoryImageBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        return BrandCategoryImageViewHolder(binding)
+            ItemBrandCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return BrandCategoryViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: BrandCategoryImageViewHolder, position: Int) {
-        holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: BrandCategoryViewHolder, position: Int) {
+        holder.bind(categories)
     }
 
-    inner class BrandCategoryImageViewHolder(
-        private val binding: ItemBrandCategoryImageBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+    override fun getItemCount(): Int = 1
 
-        fun bind(item: BrandCategory) {
-            Glide.with(binding.ivBrandCategory.context)
-                .load(item.imageUrl)
-                .into(binding.ivBrandCategory)
-        }
-    }
-
-    companion object DiffCallback : DiffUtil.ItemCallback<BrandCategory>() {
-        override fun areItemsTheSame(oldItem: BrandCategory, newItem: BrandCategory): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: BrandCategory, newItem: BrandCategory): Boolean {
-            return oldItem == newItem
-        }
+    override fun getItemViewType(position: Int): Int {
+        return HomeFragment.CATEGORY_VIEW_TYPE
     }
 }

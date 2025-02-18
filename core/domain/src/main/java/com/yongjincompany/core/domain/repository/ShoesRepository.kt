@@ -1,7 +1,7 @@
 package com.yongjincompany.core.domain.repository
 
-import com.yongjincompany.core.model.Shoes
+import com.yongjincompany.core.domain.entity.ShoesEntity
 
 interface ShoesRepository {
-    suspend fun fetchAllShoesList(): List<Shoes>
+    suspend fun fetchAllShoesList(): List<ShoesEntity>
 }

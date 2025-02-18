@@ -1,6 +1,6 @@
-package com.yongjincompany.core.model
+package com.yongjincompany.core.domain.entity
 
-data class Shoes(
+data class ShoesEntity(
     val id: Int,
     val name: String,
     val brandName: String,

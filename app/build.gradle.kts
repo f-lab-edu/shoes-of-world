@@ -1,8 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.sow.android.application)
+    alias(libs.plugins.sow.hilt)
+    alias(libs.plugins.sow.android.application.firebase)
 }
 
 android {
@@ -12,7 +11,6 @@ android {
     defaultConfig {
         applicationId = "com.yongjincompany.shoesofworld"
         minSdk = 24
-        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -20,11 +18,18 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
+            isDebuggable = true
             isMinifyEnabled = false
+            isShrinkResources = false
+        }
+        release {
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -44,8 +49,8 @@ android {
 dependencies {
     implementation(project(":feature:home"))
 
-    implementation(libs.dagger.hilt.android)
-    ksp(libs.dagger.hilt.android.compiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

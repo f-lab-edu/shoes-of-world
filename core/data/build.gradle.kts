@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -50,10 +50,9 @@ dependencies {
     implementation(libs.retrofit.kotlin.serialization)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
-    implementation(libs.dagger.hilt.android)
-    ksp(libs.dagger.hilt.android.compiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
     implementation(libs.retrofit.kotlin.serialization)
 
     implementation(project(":core:domain"))
-    implementation(project(":core:model"))
 }

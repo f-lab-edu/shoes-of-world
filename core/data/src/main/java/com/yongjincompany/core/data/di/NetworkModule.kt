@@ -1,6 +1,7 @@
 package com.yongjincompany.core.data.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.yongjincompany.core.data.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +16,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object NetworkModule {
+object NetworkModule {
     private const val BASE_URL = "http://example/api/"
 
     @Provides

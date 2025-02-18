@@ -16,5 +16,4 @@ kotlin {
 
 dependencies {
     implementation(libs.inject)
-    implementation(project(":core:model"))
 }

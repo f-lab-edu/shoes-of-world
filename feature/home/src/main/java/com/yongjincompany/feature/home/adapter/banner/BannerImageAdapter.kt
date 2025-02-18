@@ -6,33 +6,37 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.yongjincompany.core.model.Banner
+import com.yongjincompany.core.domain.entity.BannerEntity
 import com.yongjincompany.feature.home.databinding.ItemBannerImageBinding
 
-internal class BannerImageAdapter : ListAdapter<Banner, BannerImageAdapter.BannerViewHolder>(
+internal class BannerImageAdapter : ListAdapter<BannerEntity, BannerImageAdapter.BannerImageViewHolder>(
     DiffCallback
 ) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerImageViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemBannerImageBinding.inflate(inflater, parent, false)
-        return BannerViewHolder(binding)
+        return BannerImageViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BannerImageViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class BannerViewHolder(private val binding: ItemBannerImageBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(banner: Banner) {
+    class BannerImageViewHolder(private val binding: ItemBannerImageBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(banner: BannerEntity) {
             Glide.with(binding.root)
                 .load(banner.imageUrl)
                 .into(binding.ivBanner)
         }
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<Banner>() {
-        override fun areItemsTheSame(oldItem: Banner, newItem: Banner): Boolean = oldItem.id == newItem.id
-        override fun areContentsTheSame(oldItem: Banner, newItem: Banner): Boolean = oldItem == newItem
+    private companion object DiffCallback : DiffUtil.ItemCallback<BannerEntity>() {
+        override fun areItemsTheSame(oldItem: BannerEntity, newItem: BannerEntity): Boolean =
+            oldItem.id == newItem.id
+
+        override fun areContentsTheSame(oldItem: BannerEntity, newItem: BannerEntity): Boolean =
+            oldItem == newItem
     }
 }
