@@ -1,0 +1,19 @@
+name: "Need"
+description: "이거 만들어주면 좋겠어요🙏"
+body:
+
+- type: textarea
+  attributes:
+    label: New Feature
+    description: |
+      [Explain] 추가되거나 만들면 좋을 것 같은 기능을 적어주세요 :)
+
+    placeholder: |
+      ex ) 갑자기 이용진 얼굴이 화면에 뜨면서 막 발광하는 화면 만들어주세요.
+
+- type: textarea
+  attributes:
+    label: Additional
+    description: |
+      [추가사항] 별도로 알려줘야 할 사항이나 추가사항을 작성해주세요.
+
