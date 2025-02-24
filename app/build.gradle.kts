@@ -2,15 +2,14 @@ plugins {
     alias(libs.plugins.sow.android.application)
     alias(libs.plugins.sow.hilt)
     alias(libs.plugins.sow.android.application.firebase)
+    alias(libs.plugins.sow.android.application.compose)
 }
 
 android {
     namespace = "com.yongjincompany.shoesofworld"
-    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.yongjincompany.shoesofworld"
-        minSdk = 24
         versionCode = 1
         versionName = "1.0"
 
@@ -33,13 +32,6 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = "17"
-    }
 
     buildFeatures {
         viewBinding = true
@@ -48,9 +40,6 @@ android {
 
 dependencies {
     implementation(project(":feature:home"))
-
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
