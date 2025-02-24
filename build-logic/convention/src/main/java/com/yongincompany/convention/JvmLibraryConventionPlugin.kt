@@ -1,5 +1,4 @@
-package com.yongincompany.convention.util
-
+import com.yongincompany.convention.util.configureKotlinJvm
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
