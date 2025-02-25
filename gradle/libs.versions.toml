@@ -32,6 +32,8 @@ firebaseCrashlyticsPlugin = "3.0.3"
 hilt = "2.55"
 gmsPlugin = "4.4.2"
 recyclerview = "1.4.0"
+mockk = "1.13.8"
+kotest = "5.8.0"
 
 [libraries]
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
@@ -74,6 +76,9 @@ firebase-config-ktx = { group = "com.google.firebase", name = "firebase-config-k
 firebase-cloud-messaging-ktx = { group = "com.google.firebase", name = "firebase-messaging-ktx", version.ref = "firebaseFcm" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 inject = "javax.inject:javax.inject:1"
+mockk = {group ="io.mockk", name = "mockk", version.ref = "mockk"}
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
 
 
 # Dependencies of the included build-logic

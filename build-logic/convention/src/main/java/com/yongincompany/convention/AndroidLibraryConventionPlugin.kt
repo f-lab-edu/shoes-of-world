@@ -7,6 +7,7 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.kotlin
 import com.yongincompany.convention.util.configureKotlinAndroid
 import com.yongincompany.convention.util.disableUnnecessaryAndroidTests
+import com.yongincompany.convention.util.libs
 
 class AndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -23,6 +24,12 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
                 buildFeatures {
                     buildConfig = true
+                }
+
+                testOptions {
+                    unitTests.all {
+                        it.useJUnitPlatform()
+                    }
                 }
 
                 buildTypes {
@@ -42,6 +49,10 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 //코틀린 기본 테스트 라이브러리 추가
                 add("androidTestImplementation", kotlin("test"))
                 add("testImplementation", kotlin("test"))
+
+                add("testImplementation", libs.findLibrary("kotest.runner.junit5").get())
+                add("testImplementation", libs.findLibrary("kotest.assertions.core").get())
+                add("testImplementation", libs.findLibrary("mockk").get())
             }
         }
     }
