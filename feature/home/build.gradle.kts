@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.sow.android.feature)
+    alias(libs.plugins.sow.android.library.compose)
 }
 
 android {
