@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.sow.android.application)
     alias(libs.plugins.sow.hilt)
     alias(libs.plugins.sow.android.application.firebase)
-    alias(libs.plugins.sow.android.application.compose)
 }
 
 android {
