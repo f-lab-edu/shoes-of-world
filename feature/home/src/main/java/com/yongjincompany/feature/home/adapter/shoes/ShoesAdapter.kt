@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.yongjincompany.core.domain.entity.ShoesEntity
+import com.yongjincompany.core.domain.entity.Shoes
 import com.yongjincompany.feature.home.HomeFragment
 import com.yongjincompany.feature.home.databinding.ItemShoesBinding
 
-internal class ShoesAdapter : ListAdapter<ShoesEntity, ShoesViewHolder>(DiffCallback) {
+internal class ShoesAdapter : ListAdapter<Shoes, ShoesViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -31,12 +31,12 @@ internal class ShoesAdapter : ListAdapter<ShoesEntity, ShoesViewHolder>(DiffCall
         return HomeFragment.SHOES_VIEW_TYPE
     }
 
-    private companion object DiffCallback : DiffUtil.ItemCallback<ShoesEntity>() {
-        override fun areItemsTheSame(oldItem: ShoesEntity, newItem: ShoesEntity): Boolean {
+    private companion object DiffCallback : DiffUtil.ItemCallback<Shoes>() {
+        override fun areItemsTheSame(oldItem: Shoes, newItem: Shoes): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: ShoesEntity, newItem: ShoesEntity): Boolean {
+        override fun areContentsTheSame(oldItem: Shoes, newItem: Shoes): Boolean {
             return oldItem == newItem
         }
     }
