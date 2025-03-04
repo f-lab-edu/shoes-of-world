@@ -112,4 +112,3 @@ sow-hilt = { id = "sow.hilt", version = "unspecified" }
 sow-jvm-library = { id = "sow.jvm.library", version = "unspecified" }
 sow-android-test = { id = "sow.android.test", version = "unspecified" }
 sow-android-library-compose = { id = "sow.android.library.compose", version = "unspecified" }
-sow-android-application-compose = { id = "sow.android.application.compose", version = "unspecified" }
