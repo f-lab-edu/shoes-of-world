@@ -1,5 +1,7 @@
 package com.yongjincompany.core.data.di
 
+import com.yongjincompany.core.data.local.datasource.LocalShoesDataSource
+import com.yongjincompany.core.data.local.datasource.LocalShoesDataSourceImpl
 import com.yongjincompany.core.data.remote.datasource.RemoteShoesDataSource
 import com.yongjincompany.core.data.remote.datasource.RemoteShoesDataSourceImpl
 import dagger.Binds
@@ -15,4 +17,9 @@ abstract class DataSourceModule {
     abstract fun provideRemoteShoesDataSource(
         remoteShoesDataSourceImpl: RemoteShoesDataSourceImpl
     ): RemoteShoesDataSource
+
+    @Binds
+    abstract fun provideLocalShoesDataSource(
+        localShoesDataSourceImpl: LocalShoesDataSourceImpl
+    ): LocalShoesDataSource
 }

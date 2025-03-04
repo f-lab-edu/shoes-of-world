@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import com.yongjincompany.core.domain.entity.BannerEntity
 import com.yongjincompany.core.domain.entity.BrandCategoryEntity
-import com.yongjincompany.core.domain.entity.ShoesEntity
+import com.yongjincompany.core.domain.entity.Shoes
 import com.yongjincompany.feature.home.adapter.banner.BannerAdapter
 import com.yongjincompany.feature.home.adapter.brand_category.BrandCategoryAdapter
 import com.yongjincompany.feature.home.adapter.shoes.ShoesAdapter
@@ -135,28 +135,28 @@ class HomeFragment : Fragment() {
         )
 
         private val shoesItemList = listOf(
-            ShoesEntity(
+            Shoes(
                 id = 0,
                 name = "에어포스 1",
                 brandName = "나이키",
                 imageUrl = "",
                 bookmarkCount = 0
             ),
-            ShoesEntity(
+            Shoes(
                 id = 1,
                 name = "용진포스 2",
                 brandName = "퓨마",
                 imageUrl = "",
                 bookmarkCount = 100
             ),
-            ShoesEntity(
+            Shoes(
                 id = 2,
                 name = "공기포스 3",
                 brandName = "아디다스",
                 imageUrl = "",
                 bookmarkCount = 0
             ),
-            ShoesEntity(
+            Shoes(
                 id = 3,
                 name = "허헣 3",
                 brandName = "프로스펙스",
