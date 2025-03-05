@@ -13,8 +13,8 @@ class AndroidApplicationFirebaseConventionPlugin : Plugin<Project> {
             dependencies {
                 val bom = libs.findLibrary("firebase-bom").get()
                 add("implementation", platform(bom))
-                "implementation"(libs.findLibrary("firebase.analytics.ktx").get())
-                "implementation"(libs.findLibrary("firebase.cloud.messaging.ktx").get())
+                "implementation"(libs.findLibrary("firebase.analytics").get())
+                "implementation"(libs.findLibrary("firebase.cloud.messaging").get())
             }
         }
     }
