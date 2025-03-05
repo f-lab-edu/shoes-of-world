@@ -24,5 +24,6 @@ rootProject.name = "ShoesOfWorld"
 include(":app")
 include(":core:data")
 include(":core:domain")
+include(":core:designsystem")
 include(":feature:home")
-include(":core:ui")
+

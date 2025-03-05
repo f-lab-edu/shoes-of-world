@@ -6,12 +6,9 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
-material = "1.12.0"
 androidxComposeAlpha = "1.7.8"
 androidxComposeBom = "2025.02.00"
 androidxComposeRuntimeTracing = "1.7.8"
-activity = "1.10.0"
-constraintlayout = "2.2.0"
 jetbrainsKotlinJvm = "2.0.0"
 kotlinxCoroutines = "1.8.0"
 fragment = "1.8.6"
@@ -26,13 +23,11 @@ firebaseAnaylitics = "22.2.0"
 kotlinxSerializationJson = "1.6.3"
 retrofitKotlinxSerializationJson = "1.0.0"
 okhttp = "4.12.0"
-glide = "4.16.0"
 room = "2.6.1"
 ksp = "2.0.0-1.0.23"
 firebaseCrashlyticsPlugin = "3.0.3"
 hilt = "2.55"
 gmsPlugin = "4.4.2"
-recyclerview = "1.4.0"
 mockk = "1.13.8"
 kotest = "5.8.0"
 
@@ -43,6 +38,7 @@ androidx-compose-foundation-layout = { group = "androidx.compose.foundation", na
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
 androidx-compose-runtime-tracing = { group = "androidx.compose.runtime", name = "runtime-tracing", version.ref = "androidxComposeRuntimeTracing" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose" }
 androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "androidxComposeAlpha" }
 androidx-compose-ui-testManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
@@ -53,10 +49,6 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-androidx-recyclerview = {group ="androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview"}
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
@@ -68,7 +60,6 @@ kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
@@ -79,7 +70,7 @@ firebase-config-ktx = { group = "com.google.firebase", name = "firebase-config-k
 firebase-cloud-messaging-ktx = { group = "com.google.firebase", name = "firebase-messaging-ktx", version.ref = "firebaseFcm" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 inject = "javax.inject:javax.inject:1"
-mockk = {group ="io.mockk", name = "mockk", version.ref = "mockk"}
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
 
@@ -92,7 +83,6 @@ ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devto
 hilt-gradlePlugin = { group = "com.google.dagger", name = "hilt-android-gradle-plugin", version.ref = "hilt" }
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 firebase-crashlytics-gradlePlugin = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebaseCrashlyticsPlugin" }
-
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

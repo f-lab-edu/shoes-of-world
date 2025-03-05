@@ -1,34 +1,34 @@
 package com.yongjincompany.shoesofworld
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.yongjincompany.feature.home.HomeFragment
-import com.yongjincompany.shoesofworld.databinding.ActivityMainBinding
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
+import com.yongjincompany.core.designsystem.theme.SowTheme
+import com.yongjincompany.feature.home.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-
-
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        setContent {
+            SowTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    HomeScreen(
+                        modifier = Modifier.fillMaxSize().padding(innerPadding),
+                    )
+                }
+            }
         }
 
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragment_container_view, HomeFragment())
-            .commit()
     }
+
 }
+
