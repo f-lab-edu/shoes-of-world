@@ -1,6 +1,6 @@
 package com.yongjincompany.core.data.remote.api
 
-import com.yongjincompany.core.data.remote.model.response.ShoesResponse
+import com.yongjincompany.core.data.remote.model.response.shoes.ShoesResponse
 import retrofit2.http.GET
 
 interface ShoesApi {

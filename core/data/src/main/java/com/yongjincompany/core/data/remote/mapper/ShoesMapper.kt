@@ -1,7 +1,7 @@
 package com.yongjincompany.core.data.remote.mapper
 
 import com.yongjincompany.core.data.local.entity.ShoesEntity
-import com.yongjincompany.core.data.remote.model.response.ShoesResponse
+import com.yongjincompany.core.data.remote.model.response.shoes.ShoesResponse
 import com.yongjincompany.core.domain.entity.Shoes
 
 internal fun ShoesResponse.responseToEntity(): Shoes =
