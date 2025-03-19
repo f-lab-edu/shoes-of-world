@@ -10,8 +10,11 @@ android {
 
 dependencies {
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.lifecycle.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    implementation(libs.androidx.hilt.navigation.compose)
 }
