@@ -1,27 +1,16 @@
 package com.yongjincompany.feature.home
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,20 +43,23 @@ fun HomeScreen(modifier: Modifier = Modifier, viewModel: HomeViewModel = hiltVie
 
 @Composable
 fun HomeBanner(modifier: Modifier = Modifier, bannerList: List<Banner>) {
-    val context = LocalContext.current
-    val pagerState = rememberPagerState(pageCount = { bannerList.size })
+    Box(modifier = modifier.height(390.dp)) {
+        val pagerState = rememberPagerState(pageCount = { bannerList.size })
+        val context = LocalContext.current
 
-    HorizontalPager(
-        state = pagerState,
-        modifier = modifier.height(390.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        AsyncImage(
-            model = bannerList[it].imageUrl,
-            contentDescription = context.getString(R.string.content_description_banner),
-            contentScale = ContentScale.Crop,
-            modifier = modifier.fillMaxSize()
-        )
+        HorizontalPager(
+            state = pagerState,
+            modifier = modifier.fillMaxSize(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            AsyncImage(
+                model = bannerList[it].imageUrl,
+                contentDescription = context.getString(R.string.content_description_banner),
+                contentScale = ContentScale.Crop,
+                modifier = modifier.fillMaxSize()
+            )
+        }
+
     }
 }
 
