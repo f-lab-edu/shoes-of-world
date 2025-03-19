@@ -15,18 +15,17 @@ import javax.inject.Inject
 
 class ShoesRepositoryImpl @Inject constructor(
     private val remoteShoesDataSource: RemoteShoesDataSource,
-    private val localShoesDataSource: LocalShoesDataSource
+    private val localShoesDataSource: LocalShoesDataSource,
 ) : ShoesRepository {
-    override suspend fun fetchAllShoesList(): Flow<List<Shoes>> = flow {
-        emit(localShoesDataSource.selectAllFromShoesTable().map { it.localEntityToDomainEntity() })
-
+    override fun fetchAllShoesList(): Flow<List<Shoes>> = flow {
         runCatching {
             remoteShoesDataSource.fetchAllShoesList()
         }.onSuccess { allShoesList ->
             localShoesDataSource.insertShoes(allShoesList.map { shoes -> shoes.responseToLocalEntity() })
             emit(allShoesList.map { it.responseToEntity() })
         }.onFailure {
-            //TODO: errorHandling구현하면서 처리 필요.
+            emit(localShoesDataSource.selectAllFromShoesTable().map { it.localEntityToDomainEntity() })
         }
-    }.flowOn(Dispatchers.IO)
+    }
+        .flowOn(Dispatchers.IO)
 }
