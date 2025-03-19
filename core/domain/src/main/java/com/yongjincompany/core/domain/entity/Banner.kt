@@ -1,6 +1,6 @@
 package com.yongjincompany.core.domain.entity
 
-data class BannerEntity(
+data class Banner(
     val id: Int,
     val imageUrl: String
 )
