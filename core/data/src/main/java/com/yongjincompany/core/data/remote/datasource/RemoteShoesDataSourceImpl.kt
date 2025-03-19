@@ -1,7 +1,7 @@
 package com.yongjincompany.core.data.remote.datasource
 
 import com.yongjincompany.core.data.remote.api.ShoesApi
-import com.yongjincompany.core.data.remote.model.response.ShoesResponse
+import com.yongjincompany.core.data.remote.model.response.shoes.ShoesResponse
 import javax.inject.Inject
 
 class RemoteShoesDataSourceImpl @Inject constructor(

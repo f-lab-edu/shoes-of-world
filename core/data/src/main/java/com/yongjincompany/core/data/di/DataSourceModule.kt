@@ -1,7 +1,11 @@
 package com.yongjincompany.core.data.di
 
+import com.yongjincompany.core.data.local.datasource.LocalBannerDataSource
+import com.yongjincompany.core.data.local.datasource.LocalBannerDataSourceImpl
 import com.yongjincompany.core.data.local.datasource.LocalShoesDataSource
 import com.yongjincompany.core.data.local.datasource.LocalShoesDataSourceImpl
+import com.yongjincompany.core.data.remote.datasource.RemoteBannerDataSource
+import com.yongjincompany.core.data.remote.datasource.RemoteBannerDataSourceImpl
 import com.yongjincompany.core.data.remote.datasource.RemoteShoesDataSource
 import com.yongjincompany.core.data.remote.datasource.RemoteShoesDataSourceImpl
 import dagger.Binds
@@ -22,4 +26,14 @@ abstract class DataSourceModule {
     abstract fun provideLocalShoesDataSource(
         localShoesDataSourceImpl: LocalShoesDataSourceImpl
     ): LocalShoesDataSource
+
+    @Binds
+    abstract fun provideRemoteBannerDataSource(
+        remoteBannerDataSourceImpl: RemoteBannerDataSourceImpl
+    ): RemoteBannerDataSource
+
+    @Binds
+    abstract fun provideLocalBannerDataSource(
+        localBannerDataSourceImpl: LocalBannerDataSourceImpl
+    ): LocalBannerDataSource
 }

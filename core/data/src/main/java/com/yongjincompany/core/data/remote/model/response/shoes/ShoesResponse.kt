@@ -1,4 +1,4 @@
-package com.yongjincompany.core.data.remote.model.response
+package com.yongjincompany.core.data.remote.model.response.shoes
 
 import kotlinx.serialization.Serializable
 
