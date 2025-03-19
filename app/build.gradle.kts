@@ -34,8 +34,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:home"))
-    implementation(project(":core:designsystem"))
+    implementation(projects.feature.home)
+    implementation(projects.core.designsystem)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
