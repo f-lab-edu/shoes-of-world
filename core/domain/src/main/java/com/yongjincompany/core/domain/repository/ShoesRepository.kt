@@ -4,5 +4,5 @@ import com.yongjincompany.core.domain.entity.Shoes
 import kotlinx.coroutines.flow.Flow
 
 interface ShoesRepository {
-    suspend fun fetchAllShoesList(): Flow<List<Shoes>>
+    fun fetchAllShoesList(): Flow<List<Shoes>>
 }
