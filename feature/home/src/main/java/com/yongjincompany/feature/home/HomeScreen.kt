@@ -1,9 +1,16 @@
 package com.yongjincompany.feature.home
 
+import android.widget.Space
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -18,11 +25,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil3.compose.AsyncImage
+import com.yongjincompany.core.designsystem.R.*
+import com.yongjincompany.core.designsystem.theme.InputText
+import com.yongjincompany.core.designsystem.theme.Primary400
 import com.yongjincompany.core.designsystem.theme.SowTheme
+import com.yongjincompany.core.designsystem.theme.SowTypography
 import com.yongjincompany.core.domain.entity.Banner
 import com.yongjincompany.core.domain.entity.Shoes
 
@@ -78,14 +91,55 @@ fun HomeShoesList(modifier: Modifier = Modifier, shoesList: List<Shoes>) {
         modifier = modifier
     ) {
         items(shoesList, key = { it.id }) { shoe ->
-            ShoeItem(shoe)
+            ShoeItem(shoe = shoe)
         }
     }
 }
 
 @Composable
-fun ShoeItem(shoe: Shoes) {
-    Text(text = shoe.name)
+fun ShoeItem(modifier: Modifier = Modifier, shoe: Shoes) {
+    val context = LocalContext.current
+
+    Column() {
+        AsyncImage(
+            model = shoe.imageUrl,
+            contentDescription = context.getString(R.string.content_description_banner),
+            contentScale = ContentScale.Crop,
+            modifier = modifier
+                .fillMaxWidth()
+                .height(172.dp)
+        )
+        Spacer(modifier.height(8.dp))
+        Text(
+            text = shoe.brandName,
+            style = SowTheme.typography.title2
+        )
+        Spacer(modifier.height(5.dp))
+        Text(
+            text = shoe.name,
+            style = SowTheme.typography.caption1,
+            color = InputText
+        )
+        Spacer(modifier.height(5.dp))
+        Row(
+            modifier = modifier
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                modifier = modifier.size(12.dp),
+                painter = painterResource(id = drawable.ic_bookmark),
+                contentDescription = stringResource(R.string.bookmark_image)
+            )
+            Spacer(modifier.width(4.dp))
+            Text(
+                text = shoe.bookmarkCount.toString(),
+                style = SowTheme.typography.title4,
+                color = Primary400
+            )
+        }
+
+    }
 }
 
 
@@ -146,8 +200,15 @@ fun PreviewHomeShoesList() {
 
 @Preview
 @Composable
-fun PreviewHomeScreen() {
+fun PreviewShoeItem() {
     SowTheme {
-        //HomeScreen()
+        val mockShoe = Shoes(
+            id = 2,
+            imageUrl = "https://fastly.picsum.photos/id/496/200/300.jpg?hmac=demLRv0UMwDhQHH6AEmbkJqlYuX27lnRH5N9FYcHBgw",
+            brandName = "나이키",
+            name = "나이키 에어맥스",
+            bookmarkCount = 2
+        )
+        ShoeItem(shoe = mockShoe)
     }
 }
