@@ -2,6 +2,7 @@ package com.yongjincompany.feature.home
 
 import android.widget.Space
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -16,6 +18,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -23,6 +26,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -35,7 +39,6 @@ import com.yongjincompany.core.designsystem.R.*
 import com.yongjincompany.core.designsystem.theme.InputText
 import com.yongjincompany.core.designsystem.theme.Primary400
 import com.yongjincompany.core.designsystem.theme.SowTheme
-import com.yongjincompany.core.designsystem.theme.SowTypography
 import com.yongjincompany.core.domain.entity.Banner
 import com.yongjincompany.core.domain.entity.Shoes
 
@@ -55,7 +58,9 @@ fun HomeScreen(modifier: Modifier = Modifier, viewModel: HomeViewModel = hiltVie
 
         //TODO: banner
         HomeBanner(bannerList = bannerList)
+
         //TODO: category
+
 
         //TODO: shoes list
         HomeShoesList(shoesList = shoesList)
@@ -88,7 +93,9 @@ fun HomeBanner(modifier: Modifier = Modifier, bannerList: List<Banner>) {
 fun HomeShoesList(modifier: Modifier = Modifier, shoesList: List<Shoes>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
-        modifier = modifier
+        modifier = modifier.padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(14.dp),
+        verticalArrangement = Arrangement.spacedBy(14.dp)
     ) {
         items(shoesList, key = { it.id }) { shoe ->
             ShoeItem(shoe = shoe)
@@ -108,6 +115,7 @@ fun ShoeItem(modifier: Modifier = Modifier, shoe: Shoes) {
             modifier = modifier
                 .fillMaxWidth()
                 .height(172.dp)
+                .clip(RoundedCornerShape(8.dp))
         )
         Spacer(modifier.height(8.dp))
         Text(
