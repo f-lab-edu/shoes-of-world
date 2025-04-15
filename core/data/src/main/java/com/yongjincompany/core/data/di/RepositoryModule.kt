@@ -1,8 +1,10 @@
 package com.yongjincompany.core.data.di
 
 import com.yongjincompany.core.data.repository.BannerRepositoryImpl
+import com.yongjincompany.core.data.repository.BrandCategoryRepositoryImpl
 import com.yongjincompany.core.data.repository.ShoesRepositoryImpl
 import com.yongjincompany.core.domain.repository.BannerRepository
+import com.yongjincompany.core.domain.repository.BrandCategoryRepository
 import com.yongjincompany.core.domain.repository.ShoesRepository
 import dagger.Binds
 import dagger.Module
@@ -21,4 +23,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindBannerRepository(bannerRepositoryImpl: BannerRepositoryImpl): BannerRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindBrandCategoryRepository(brandCategoryRepositoryImpl: BrandCategoryRepositoryImpl): BrandCategoryRepository
 }

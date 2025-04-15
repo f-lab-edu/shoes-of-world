@@ -1,6 +1,6 @@
 package com.yongjincompany.core.domain.entity
 
-data class BrandCategoryEntity(
+data class BrandCategory(
     val id: Int,
     val imageUrl: String
 )

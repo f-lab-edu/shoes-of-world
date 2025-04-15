@@ -2,10 +2,14 @@ package com.yongjincompany.core.data.di
 
 import com.yongjincompany.core.data.local.datasource.LocalBannerDataSource
 import com.yongjincompany.core.data.local.datasource.LocalBannerDataSourceImpl
+import com.yongjincompany.core.data.local.datasource.LocalBrandCategoryDataSource
+import com.yongjincompany.core.data.local.datasource.LocalBrandCategoryDataSourceImpl
 import com.yongjincompany.core.data.local.datasource.LocalShoesDataSource
 import com.yongjincompany.core.data.local.datasource.LocalShoesDataSourceImpl
 import com.yongjincompany.core.data.remote.datasource.RemoteBannerDataSource
 import com.yongjincompany.core.data.remote.datasource.RemoteBannerDataSourceImpl
+import com.yongjincompany.core.data.remote.datasource.RemoteBrandCategoryDataSource
+import com.yongjincompany.core.data.remote.datasource.RemoteBrandCategoryDataSourceImpl
 import com.yongjincompany.core.data.remote.datasource.RemoteShoesDataSource
 import com.yongjincompany.core.data.remote.datasource.RemoteShoesDataSourceImpl
 import dagger.Binds
@@ -36,4 +40,14 @@ abstract class DataSourceModule {
     abstract fun provideLocalBannerDataSource(
         localBannerDataSourceImpl: LocalBannerDataSourceImpl
     ): LocalBannerDataSource
+
+    @Binds
+    abstract fun provideRemoteBrandCategoryDataSource(
+        remoteBrandCategoryDataSourceImpl: RemoteBrandCategoryDataSourceImpl
+    ): RemoteBrandCategoryDataSource
+
+    @Binds
+    abstract fun provideLocalBrandCategoryDataSource(
+        localBrandCategoryDataSourceImpl: LocalBrandCategoryDataSourceImpl
+    ): LocalBrandCategoryDataSource
 }
