@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.yongjincompany.core.data.local.SowDatabase
 import com.yongjincompany.core.data.local.dao.BannerDao
+import com.yongjincompany.core.data.local.dao.BrandCategoryDao
 import com.yongjincompany.core.data.local.dao.ShoesDao
 import dagger.Module
 import dagger.Provides
@@ -34,5 +35,10 @@ object DatabaseModule {
     @Provides
     fun provideBannerDao(database: SowDatabase): BannerDao {
         return database.bannerDao()
+    }
+
+    @Provides
+    fun provideBrandCategoryDao(database: SowDatabase): BrandCategoryDao {
+        return database.brandCategoryDao()
     }
 }

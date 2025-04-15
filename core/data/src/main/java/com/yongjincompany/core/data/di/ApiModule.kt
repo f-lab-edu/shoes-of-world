@@ -1,6 +1,7 @@
 package com.yongjincompany.core.data.di
 
 import com.yongjincompany.core.data.remote.api.BannerApi
+import com.yongjincompany.core.data.remote.api.BrandCategoryApi
 import com.yongjincompany.core.data.remote.api.ShoesApi
 import dagger.Module
 import dagger.Provides
@@ -20,4 +21,8 @@ object ApiModule {
     @Provides
     @Singleton
     fun provideBannerApi(retrofit: Retrofit): BannerApi = retrofit.create(BannerApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideBrandCategoryApi(retrofit: Retrofit): BrandCategoryApi = retrofit.create(BrandCategoryApi::class.java)
 }
